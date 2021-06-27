@@ -8,7 +8,7 @@ const longestPalindrome = function(s) {
   }
   let palindrome = s[0];
   for (let head = 0; head < s.length; head++) {
-    for (let tail = head + 1; tail < s.length; tail++) {
+    for (let tail = head + 1; tail < s.length; tail += palindrome.length) {
       const partArr = Array.from(s.slice(head, tail + 1));
       const part = partArr.join('');
       const rePart = partArr.reverse().join('');
@@ -21,3 +21,4 @@ const longestPalindrome = function(s) {
   }
   return palindrome;
 };
+console.log(longestPalindrome('babab'));
